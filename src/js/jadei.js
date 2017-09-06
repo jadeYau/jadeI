@@ -73,24 +73,63 @@ var ji = {
 		});		
 	},
 	
-	quickFullScreenLoadingBlocker: function(img , imgWidth, imgHeight){
-		var d = new Date();
-		var n = d.getTime();
-		var randomID = n + this.randomStringMaker();
+	quickFullScreenLoadingBlocker: function(img){
+		var randomID = this.randomComplexStringMaker();
 		$("body").append("<div class='ji-fullScreenBlocker' id='ji-fullScreenBlocker-"+randomID+"'><img id='ji-fullScreenBlocker-img-"+randomID+"' src='"+img+"'/></div>");		
+		return $('#ji-fullScreenBlocker-'+randomID).get(0);
 	},
 	
 
 	randomStringMaker: function(str_length){
-		  if(str_length==null){ var str_length = 5; }
-		  var text = "";
-		  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-		  for (var i = 0; i < str_length; i++){
-		    text += possible.charAt(Math.floor(Math.random() * possible.length));
-		  }
-		  return text;		
+		if(str_length==null || str_length < 10){ var str_length = 10; }
+		var text = "";
+		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		for (var i = 0; i < str_length; i++){
+			text += possible.charAt(Math.floor(Math.random() * possible.length));
+		}
+		return text;		
 	},
 
+	randomComplexStringMaker: function(str_length){
+		var d = new Date();
+		var n = d.getTime()+"";
+		if(str_length==null){ var str_length = 20; }
+		var text = "";		
+		str_length = str_length - n.length;
+		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		for (var i = 0; i < str_length; i++){
+			text += possible.charAt(Math.floor(Math.random() * possible.length));
+		}
+		return n+text;		
+	},
 
+	imageValidation: function(path){
+		var result;	
+		$("body").append("<img id='ji-imgValidation' style='display:none;'/>");
+		var img = new Image();
+		img.onload = function() {
+			var tmpImg = {
+			    src:  img.src,
+			    width: img.width,
+			    height: img.height
+			};
+			$('#ji-imgValidation').remove();
+			result = tmpImg;		    		    
+		}
+		img.onerror = img.onabort = function() {
+			$('#ji-imgValidation').remove();
+			result = false;
+		}		
+		img.src = path;
+		document.getElementById("ji-imgValidation").src= img.src;
+		var checkFinish = setInterval(
+		function(){
+			if(result!=null){
+	      		clearInterval(checkFinish);
+	      		return result;
+			} 
+		}, 1000);	  
+	  	checkFinish;		
+	},
 
 }

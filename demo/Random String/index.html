@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>JadeI Library Demo</title>
+		<script src="../../src/js/jquery-3.2.1.min.js"></script>
+		<script src="../../src/js/jadei.js"></script>	
+	</head>
+	
+	<body>
+		<h4>Normal</h4>	
+		<ul>
+			<li>Default (Length:10): <span id="result1"></span></li>
+			<li>Specific Length: <span id="result2"></span></li>
+		</ul>
+		<h4>Complex</h4>
+		<ul>
+			<li>Default: (Length:20): <span id="result3"></span></li>
+			<li>Specific Length: <span id="result4"></span></li>
+		</ul>	
+		<script>			
+			$('#result1').html(ji.randomStringMaker());
+			$('#result2').html(ji.randomStringMaker(15));
+			$('#result3').html(ji.randomComplexStringMaker());
+			$('#result4').html(ji.randomComplexStringMaker(25));
+		</script>
+	</body>
+
+</html>

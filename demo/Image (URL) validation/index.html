@@ -1,0 +1,48 @@
+<!DOCTYPE>
+<html>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>JadeI Library Demo</title>
+		<script src="../../src/js/jquery-3.2.1.min.js"></script>
+		<script src="../../src/js/jadei.js"></script>	
+	</head>
+	
+	<body>	
+		<div id="fixedPosEle" style="text-align:center;">
+			<h4>Please view console</h4>
+			<h4>*Beware the relative path*</h4>
+		</div>		
+		<script>
+		 	var checkResult1 = ji.imageValidation();
+		 	var checkResultTask1 = setInterval(
+			function(){
+				console.log('task1');
+				if(checkResult1!=null){
+		      		console.log(checkResult1);
+				} 
+			}, 1000);	  
+		  	checkResultTask1;
+
+		  	var checkResult2 = ji.imageValidation('fake');
+		 	var checkResultTask2 = setInterval(
+			function(){
+				console.log('task2');
+				if(checkResult2!=null){
+		      		console.log(checkResult2);
+				} 
+			}, 1000);	  
+		  	checkResultTask2;
+			
+			var checkResult3 = ji.imageValidation('Lighthouse.jpg');
+		 	var checkResultTask3 = setInterval(
+			function(){
+				console.log('task3');
+				if(checkResult3!=null){
+		      		console.log(checkResult3);
+				} 
+			}, 1000);	  
+		  	checkResultTask3;				
+		</script>
+	</body>
+</html>
