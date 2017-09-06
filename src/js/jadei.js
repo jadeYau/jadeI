@@ -142,4 +142,27 @@ var ji = {
 		return task;
 	},
 
+	// Compatible for cross browser.
+	datetimeToString: function(date, format){
+		var pad = function(number) {
+	        var r = String(number);
+	        if ( r.length === 1 ) {
+	            r = '0' + r;
+	        }
+	        return r;
+		}      
+		Date.prototype.toISOString = function() {
+		        return this.getFullYear()
+		            + '-' + pad( this.getMonth() + 1 )
+		            + '-' + pad( this.getDate() )
+		            + 'T' + pad( this.getHours() )
+		            + ':' + pad( this.getMinutes() )
+		            + ':' + pad( this.getSeconds() )
+		            + '.' + String( (this.getMilliseconds()/1000).toFixed(3) ).slice( 2, 5 )
+		            + 'Z';
+		}
+		if(date==null){ date = new Date(); }
+		return date.toISOString();
+	}
+
 }
