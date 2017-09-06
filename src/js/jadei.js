@@ -105,7 +105,7 @@ var ji = {
 
 	imageValidation: function(path){
 		var task = {
-			result: ''
+			result: null
 		};	
 		$("body").append("<img id='ji-imgValidation' style='display:none;'/>");
 		var img = new Image();
