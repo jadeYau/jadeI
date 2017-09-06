@@ -105,7 +105,8 @@ var ji = {
 
 	imageValidation: function(path){
 		var task = {
-			result: null
+			result: null,
+			img: null
 		};	
 		$("body").append("<img id='ji-imgValidation' style='display:none;'/>");
 		var img = new Image();
@@ -116,7 +117,8 @@ var ji = {
 			    height: img.height
 			};
 			$('#ji-imgValidation').remove();
-			task.result = tmpImg;			 		    
+			task.result = true;
+			task.img = tmpImg;	 		    
 		}
 		img.onerror = img.onabort = function() {
 			$('#ji-imgValidation').remove();
