@@ -1,0 +1,20 @@
+.ji-fullScreenBlocker{
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	background-color:#686868;
+	opacity: .75; /* standard: ff gt 1.5, opera, safari */
+	-ms-filter: "alpha(opacity=75)"; /* ie 8 */
+	filter: alpha(opacity=75); /* ie lt 7 */
+	-khtml-opacity: .75; /* safari 1.x */
+	-moz-opacity: .75; /* ff lt 1.5, netscape */
+	z-index: 9000;
+}
+
+.ji-fullScreenBlocker img{
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}

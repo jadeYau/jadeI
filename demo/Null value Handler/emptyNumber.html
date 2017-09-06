@@ -1,0 +1,29 @@
+<!DOCTYPE>
+<html>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>JadeI Library Demo</title>
+		<script src="../../src/js/jquery-3.2.1.min.js"></script>
+		<script src="../../src/js/jadei.js"></script>	
+	</head>
+	
+	<ul>
+		<li>Null Varible: <span id="result1"></span></li>
+		<li>Empty String: <span id="result2"></span></li>
+		<li>Empty String (with space): <span id="result3"></span></li>
+		<li>Good Varible(1): <span id="result4"></span></li>
+		<li>Good Varible(2): <span id="result5"></span></li>
+	</ul>
+
+	<body>	
+		<script>
+			var unknown;
+			$('#result1').html(ji.replaceEmptyNullNumber(unknown));
+			$('#result2').html(ji.replaceEmptyNullNumber(''));
+			$('#result3').html(ji.replaceEmptyNullNumber('   '));
+			$('#result4').html(ji.replaceEmptyNullNumber(94340634));
+			$('#result5').html(ji.replaceEmptyNullNumber('94340634'));
+		</script>
+	</body>
+</html>

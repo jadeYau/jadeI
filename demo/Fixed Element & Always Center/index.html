@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>JadeI Library Demo</title>
+		<script src="../../src/js/jquery-3.2.1.min.js"></script>
+		<script src="../../src/js/jadei.js"></script>	
+	</head>
+	
+	<body>		
+		<div id="fixedPosEle">
+			<h4>Fixed Position</h4>
+		</div>		
+		<script>			
+			ji.resizeAndCenterOnceTime($('#fixedPosEle').get(0));
+			ji.resizeAndCenterMultiTime($('#fixedPosEle').get(0));
+		</script>
+	</body>
+
+</html>

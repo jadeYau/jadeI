@@ -1,0 +1,24 @@
+<!DOCTYPE>
+<html>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>JadeI Library Demo</title>
+		<script src="../../src/js/jquery-3.2.1.min.js"></script>
+		<script src="../../src/js/jadei.js"></script>
+		<link rel=stylesheet type="text/css" href="../../src/css/jadei.css">
+	</head>
+	
+	<body>
+		<div id="fixedPosEle" style="text-align:center;">	
+			<h4>Something Under Loading Blocker.</h4>
+			<h4>1 line of code & provide a valid image - Build a full screen loading Blocker!</h4>
+		</div>
+		<script>			
+			ji.resizeAndCenterOnceTime($('#fixedPosEle').get(0));
+			ji.resizeAndCenterMultiTime($('#fixedPosEle').get(0));
+			// Provide Loading Image Custom image Path
+			ji.quickFullScreenLoadingBlocker('../../src/img/loading.gif'); 
+		</script>
+	</body>
+</html>
