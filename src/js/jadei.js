@@ -104,7 +104,9 @@ var ji = {
 	},
 
 	imageValidation: function(path){
-		var result;	
+		var task = {
+			result: ''
+		};	
 		$("body").append("<img id='ji-imgValidation' style='display:none;'/>");
 		var img = new Image();
 		img.onload = function() {
@@ -114,22 +116,15 @@ var ji = {
 			    height: img.height
 			};
 			$('#ji-imgValidation').remove();
-			result = tmpImg;		    		    
+			task.result = tmpImg;			 		    
 		}
 		img.onerror = img.onabort = function() {
 			$('#ji-imgValidation').remove();
-			result = false;
+			task.result = false;
 		}		
 		img.src = path;
 		document.getElementById("ji-imgValidation").src= img.src;
-		var checkFinish = setInterval(
-		function(){
-			if(result!=null){
-	      		clearInterval(checkFinish);
-	      		return result;
-			} 
-		}, 1000);	  
-	  	checkFinish;		
+		return task;
 	},
 
 }

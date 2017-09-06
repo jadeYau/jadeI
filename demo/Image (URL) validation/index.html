@@ -17,19 +17,21 @@
 		 	var checkResult1 = ji.imageValidation();
 		 	var checkResultTask1 = setInterval(
 			function(){
-				console.log('task1');
-				if(checkResult1!=null){
+				if(checkResult1.result!=null){
+					console.log('Task1');
 		      		console.log(checkResult1);
+		      		clearInterval(checkResultTask1);
 				} 
 			}, 1000);	  
 		  	checkResultTask1;
 
 		  	var checkResult2 = ji.imageValidation('fake');
 		 	var checkResultTask2 = setInterval(
-			function(){
-				console.log('task2');
-				if(checkResult2!=null){
+			function(){				
+				if(checkResult2.result!=null){
+		      		console.log('Task2');
 		      		console.log(checkResult2);
+		      		clearInterval(checkResultTask2);
 				} 
 			}, 1000);	  
 		  	checkResultTask2;
@@ -37,9 +39,10 @@
 			var checkResult3 = ji.imageValidation('Lighthouse.jpg');
 		 	var checkResultTask3 = setInterval(
 			function(){
-				console.log('task3');
-				if(checkResult3!=null){
+				if(checkResult3.result!=null){
+		      		console.log('Task3');
 		      		console.log(checkResult3);
+		      		clearInterval(checkResultTask3);
 				} 
 			}, 1000);	  
 		  	checkResultTask3;				
