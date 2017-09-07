@@ -19,3 +19,10 @@
 	margin-right: auto;
 	display: block;
 }
+
+.ji-form-errMsg{
+	color: red;
+	font-size:small;
+	font-style: oblique;
+	margin-left: 5px;
+}

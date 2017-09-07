@@ -83,7 +83,8 @@ var ji = {
 			var eleHeight = ele.offsetHeight;
 			var customCenterPaddingTop = (windowHeight - eleHeight) / 2;
 			ele.style.top = customCenterPaddingTop+"px"; 
-		});		
+		});
+		this.resizeAndCenterOnceTime(ele);	
 	},
 	
 	quickFullScreenLoadingBlocker: function(img){
@@ -176,6 +177,24 @@ var ji = {
 		        break;
 		}
 		return dateStr;
-	}
+	},
+
+	quickFormValidation: function(form){
+		if(form != null && (form.tagName == 'FORM' || form.method != null) ){
+			$('.ji-form-errMsg').remove();
+			var numOfEles = form.elements.length;
+			var invalidEleGroup = [];
+			for(var idx=0; idx<numOfEles; idx++){
+				var fieldVal = form.elements[idx].value;
+				if(fieldVal == null || $.trim(fieldVal) == ''){					
+					if($(form.elements[idx]).hasClass('ji-form-required')){						
+						$(form.elements[idx]).after('<span class="ji-form-errMsg">* Cannot be null.</span>');
+					}
+					invalidEleGroup.push(form.elements[idx]);
+				}
+			}
+			return invalidEleGroup;
+		}
+	},
 
 }
