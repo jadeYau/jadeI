@@ -9,12 +9,18 @@
 	</head>
 	
 	<ul>
-		<li>Dafault (Current Datetime): <span id="result1"></span></li>
+		<li>Dafault (Full): <span id="result1"></span></li>
+		<li>Mode 1 (Date): <span id="result2"></span></li>
+		<li>Mode 2 (Time [Short]): <span id="result3"></span></li>
+		<li>Mode 3 (Time [Long]): <span id="result4"></span></li>
 	</ul>
 
 	<body>	
 		<script>
 			$('#result1').html(ji.datetimeToString());
+			$('#result2').html(ji.datetimeToString(new Date(), 1));
+			$('#result3').html(ji.datetimeToString(new Date(), 2));
+			$('#result4').html(ji.datetimeToString(new Date(), 3));
 		</script>
 	</body>
 </html>

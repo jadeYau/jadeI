@@ -143,7 +143,7 @@ var ji = {
 	},
 
 	// Compatible for cross browser.
-	datetimeToString: function(date, format){
+	datetimeToString: function(date,mode){
 		var pad = function(number) {
 	        var r = String(number);
 	        if ( r.length === 1 ) {
@@ -161,8 +161,21 @@ var ji = {
 		            + '.' + String( (this.getMilliseconds()/1000).toFixed(3) ).slice( 2, 5 )
 		            + 'Z';
 		}
-		if(date==null){ date = new Date(); }
-		return date.toISOString();
+		if(date==null){ date = new Date(); }	
+		var dateStr = date.toISOString();
+		dateStr = dateStr.replace(/[T|Z]/g,' ')
+		switch (mode) {
+		    case 1:
+		        dateStr = dateStr.slice(0,10)
+		        break;
+		    case 2:
+		        dateStr = dateStr.slice(11,19)
+		        break;
+		    case 3:
+		        dateStr = dateStr.slice(11,23)
+		        break;
+		}
+		return dateStr;
 	}
 
 }
