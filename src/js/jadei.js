@@ -181,7 +181,7 @@ var ji = {
 
 	quickFormValidation: function(form){
 		if(form != null && (form.tagName == 'FORM' || form.method != null) ){
-			$('.ji-form-errMsg').remove();
+			$(form).children('.ji-form-errMsg').remove();
 			var numOfEles = form.elements.length;
 			var invalidEleGroup = [];
 			for(var idx=0; idx<numOfEles; idx++){

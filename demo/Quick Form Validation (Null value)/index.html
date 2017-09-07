@@ -16,17 +16,20 @@
 				<br><br>
 				Null Field: <input type="text" name="field2" value="" />				
 			</form>
+			<button onclick="ji.quickFormValidation($('#form1').get(0));">Check Form 1</button>
 			<hr>
 			<h4>Input fields set class to ji-form-required - Generate error message after checking.</h4>
 			<form id="form2" style="width:500px;">
 				Good Field: <input class="ji-form-required" type="text" name="field1" value="hello world" />
 				<br><br>
 				Null Field: <input class="ji-form-required" type="text" name="field2" value="" />				
-			</form>			
+			</form>
+			<button onclick="ji.quickFormValidation($('#form2').get(0));">Check Form 2</button>	
 			<hr>
 			<h4>ji.quickFormValidation return list of invalid (empty value) elements</h4>
 			<h4>You can custom your handler by the result list</h4>
 			<h4>Please view the console.</h4>
+
 		</div>		
 		<script>
 			ji.resizeAndCenterMultiTime($('#fixedPosEle').get(0));		
