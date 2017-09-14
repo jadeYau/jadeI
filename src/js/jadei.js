@@ -152,18 +152,19 @@ var ji = {
 	        }
 	        return r;
 		}      
-		Date.prototype.toISOString = function() {
-		        return this.getFullYear()
-		            + '-' + pad( this.getMonth() + 1 )
-		            + '-' + pad( this.getDate() )
-		            + 'T' + pad( this.getHours() )
-		            + ':' + pad( this.getMinutes() )
-		            + ':' + pad( this.getSeconds() )
-		            + '.' + String( (this.getMilliseconds()/1000).toFixed(3) ).slice( 2, 5 )
+		var dateToRawString = function(date){
+		        return date.getFullYear()
+		            + '-' + pad( date.getMonth() + 1 )
+		            + '-' + pad( date.getDate() )
+		            + 'T' + pad( date.getHours() )
+		            + ':' + pad( date.getMinutes() )
+		            + ':' + pad( date.getSeconds() )
+		            + '.' + String( (date.getMilliseconds()/1000).toFixed(3) ).slice( 2, 5 )
 		            + 'Z';
 		}
+
 		if(date==null){ date = new Date(); }	
-		var dateStr = date.toISOString();
+		var dateStr = dateToRawString(date);
 		dateStr = dateStr.replace(/[T|Z]/g,' ')
 		switch (mode) {
 		    case 1:
