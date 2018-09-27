@@ -67,7 +67,7 @@ var ji = {
 	
 	resizeAndCenterMultiTime: function(ele){		
 		ele.style.position = 'fixed';
-		window.addEventListener("resize", function(){		
+		$(window).resize(function(){	
 			var windowWidth = window.innerWidth
 			|| document.documentElement.clientWidth
 			|| document.body.clientWidth;
@@ -89,7 +89,8 @@ var ji = {
 	
 	quickFullScreenLoadingBlocker: function(img){
 		var randomID = this.randomComplexStringMaker();
-		$("body").append("<div class='ji-fullScreenBlocker' id='ji-fullScreenBlocker-"+randomID+"'><img id='ji-fullScreenBlocker-img-"+randomID+"' src='"+img+"'/></div>");		
+		$("body").append("<div class='ji-fullScreenBlocker' id='ji-fullScreenBlocker-"+randomID+"'></div>");
+		$("#ji-fullScreenBlocker-"+randomID).css('background', 'url('+img+') 50% 50% no-repeat #686868');
 		return $('#ji-fullScreenBlocker-'+randomID).get(0);
 	},
 	
