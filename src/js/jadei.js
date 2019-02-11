@@ -198,5 +198,9 @@ var ji = {
 			return invalidEleGroup;
 		}
 	},
-
+	
+	testFuncByJojo: function(){
+		console.log('New function created by Jojo!');
+	},
+	
 }
